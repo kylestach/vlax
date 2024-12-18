@@ -1,0 +1,45 @@
+[project]
+name = "vlax"
+version = "0.1.0"
+description = "Flexible vision-language-action models for robotics in JAX"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "jax>=0.4.37",
+    "numpy>=2.2.0",
+    "scipy>=1.14.1",
+    "tqdm>=4.67.1",
+    "grain-oxe==0.1.0",
+    "wandb>=0.19.1",
+    "einops>=0.8.0",
+    "flax>=0.10.2",
+    "ml-collections>=1.0.0",
+    "tokenizers>=0.21.0",
+    "transformers>=4.47.0",
+    "chex>=0.1.88",
+    "cloudpickle>=3.1.0",
+    "scalax>=0.2.5",
+]
+
+[project.optional-dependencies]
+cuda12 = [
+    "jax[cuda12]>=0.4.37"
+]
+tpu = [
+    "jax[libtpu]>=0.4.37"
+]
+
+[tool.setuptools]
+packages = ["vlax"]
+
+[tool.uv]
+package = true
+dev-dependencies = [
+    "ipykernel>=6.29.5",
+    "isort>=5.13.2",
+    "matplotlib>=3.10.0",
+    "ruff>=0.8.3",
+]
+
+[tool.uv.sources]
+grain-oxe = { path = "grain-oxe", editable = true }
